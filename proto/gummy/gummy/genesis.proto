@@ -1,0 +1,17 @@
+syntax = "proto3";
+package gummy.gummy;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "gummy/gummy/params.proto";
+
+option go_package = "gummy/x/gummy/types";
+
+// GenesisState defines the gummy module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
